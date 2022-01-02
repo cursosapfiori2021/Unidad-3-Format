@@ -1,0 +1,34 @@
+<mvc:View
+    controllerName="ns.controles.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <content>
+                       <f:FlexibleColumnLayout id="fcl" backgroundDesign="Solid" layout="TwoColumnsBeginExpanded">
+                            <f:beginColumnPages>
+                                 <mvc:XMLView id="masterProductosView" viewName="ns.controles.view.MasterProductos"></mvc:XMLView> 
+                                
+                           </f:beginColumnPages>
+
+                              <f:midColumnPages>                         
+                                         <Page id="_IDGenPage1">
+                                </Page>       
+                            </f:midColumnPages>
+                            <f:endColumnPages>
+                               <Page id="_IDGenPage3">
+                                </Page>
+                            </f:endColumnPages>
+                       </f:FlexibleColumnLayout> 
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

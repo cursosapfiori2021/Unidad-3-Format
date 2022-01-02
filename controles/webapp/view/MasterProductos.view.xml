@@ -1,0 +1,109 @@
+<mvc:View
+    controllerName="ns.controles.controller.MasterProductos"
+   xmlns:mvc="sap.ui.core.mvc" 
+          displayBlock="true" 
+          xmlns="sap.m"
+          xmlns:core="sap.ui.core">
+ 
+    
+                
+                        <HBox id="_IDGenHBox1" class="sapUiSmallMargin">
+                        	<FlexBox id="_IDGenFlexBox1"
+                                height="100px"
+                                alignItems="Start"
+                                justifyContent="Start">
+                                <Label id="labelProducto" labelFor="inputProductos"  text="{i18n>labelProducto}" class="sapUiSmallMarginEnd"/> 
+                                <Input  id= "inputProductos" 
+                                        value="{products_json>/Description}"  
+                                        maxLength="50" width="200px" 
+                                        class= "sapUiSmallMarginEnd" 
+                                        placeholder="Ingresar un producto"
+                                        showSuggestion="true"
+                                        suggestionItems="{products_json>/Productos}">
+                                        <suggestionItems>
+                                            <core:Item id="_IDGenItem1" text="{products_json>Description}" />
+                                        </suggestionItems>        
+                                </Input> 
+                            
+                                <Label id="labelMonedas" 
+                                labelFor="slCurrencyCode"  
+                                text="{i18n>labelMonedas}" 
+                                class= "sapUiSmallMarginEnd" 
+                                visible="true"/> 
+
+                                <Select 
+                                        id="slCurrencyCode" 
+                                        selectedKey="{products_json>/CurrencyCode}"  
+                                        items="{products_json>/ListCurrencyCode}" 
+                                        forceSelection="false" 
+                                        visible="true">
+                                    <items>
+                                    <core:Item id="_IDGenItem2" key="{products_json>key}" text="{products_json>text}"/>
+                                    </items>
+                                </Select>
+
+
+
+                                <Button 
+                                id="btnFilter" 
+                                text="{btnFilter}" 
+                                icon="sap-icon://search" 
+                                press="onFilter" 
+                                class="sapUiSmallMarginEnd"/>
+
+
+                                <Button 
+                                id="btnClearFilter" 
+                                text="{btnClearFilter}" 
+                                icon="sap-icon://clear-filter" 
+                                press="onClearFilter" 
+                                class="sapUiSmallMarginEnd"/>
+
+
+
+                                
+                       	    </FlexBox>
+                        </HBox>
+
+                        <HBox id="_IDGenHBox2"> 
+                                <Panel id="_IDGenPanel1">         
+                                        <Table id="idProductoTable" items="{products_json>/Productos}">
+                                            <columns>
+                                                <Column id="_IDGenColumn1">
+                                                    <header>
+                                                        <Label id="_IDGenLabel1"  text="{i18n>labelProductId}" />
+                                                    </header>
+                                                </Column>
+                                                <Column id="_IDGenColumn2">
+                                                    <header>
+                                                        <Label id="_IDGenLabel2"  text="{i18n>Description}" />
+                                                    </header>
+                                                </Column>
+                                                <Column id="_IDGenColumn3">
+                                                    <header>
+                                                        <Label id="_IDGenLabel3"  text="{i18n>CurrencyCode}" />
+                                                    </header>
+                                                </Column>
+                                                <Column id="_IDGenColumn4">
+                                                    <header>
+                                                        <Label id="_IDGenLabel4"  text="{i18n>Price}" />
+                                                    </header>
+                                                </Column>
+                                            </columns>
+                                                <items>
+                                                        <ColumnListItem id="_IDGenColumnListItem1" type="Active" press="showSupplierName">
+                                                            <cells>
+                                                                <Label id="_IDGenLabel5"  text="{products_json>ProductId}" />
+                                                                <Label id="_IDGenLabel8"  text="{products_json>Description}" />
+                                                                <Label id="_IDGenLabel6"  text="{products_json>CurrencyCode}" />
+                                                                <Label id="_IDGenLabel7"  text="{products_json>Price}" />
+                                                            </cells>
+                                                        </ColumnListItem>
+                                            </items>
+                                        </Table>
+                                </Panel>
+                        </HBox>
+                   
+             
+      
+</mvc:View>
