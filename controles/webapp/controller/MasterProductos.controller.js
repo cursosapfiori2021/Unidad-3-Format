@@ -1,12 +1,24 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
-], function (Controller) {
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator"
+], function (Controller, Filter , FilterOperator) {
 
     return Controller.extend("ns.controles.controller.MasterProductos", {
 
-        onInit: function () {
+        
 
+        onInit: function () {
+            this._bus = this.getOwnerComponent().getEventBus();
         },
+
+           
+        showProducto: function (oEvent) {
+            var path = oEvent.getSource().getBindingContext("products_json").getPath();
+            this._bus.publish("flexible", "showProducto", path);
+        },
+
+
 
         showSupplierName: function (oEvent) {
 
@@ -46,9 +58,13 @@ sap.ui.define([
 
         onClearFilter: function () {
             var oModel = this.getView().getModel("products_json").getData();
-            oModel.setProperty("/CurrencyCode", "");
-            oModel.setProperty("/Description", "");
+            this.getView().getModel("products_json").setProperty("/CurrencyCode", "");
+            this.getView().getModel("products_json").setProperty("/Description", "");
         },
+
+
+  
+
 
     });
 }); 

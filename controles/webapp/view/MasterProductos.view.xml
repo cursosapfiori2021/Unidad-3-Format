@@ -67,7 +67,7 @@
 
                         <HBox id="_IDGenHBox2"> 
                                 <Panel id="_IDGenPanel1">         
-                                        <Table id="idProductoTable" items="{products_json>/Productos}">
+                                        <Table id="idProductoTable" items="{products_json>/Productos}" >
                                             <columns>
                                                 <Column id="_IDGenColumn1">
                                                     <header>
@@ -91,7 +91,7 @@
                                                 </Column>
                                             </columns>
                                                 <items>
-                                                        <ColumnListItem id="_IDGenColumnListItem1" type="Active" press="showSupplierName">
+                                                        <ColumnListItem id="_IDGenColumnListItem1" type="Navigation" press="showProducto">
                                                             <cells>
                                                                 <Label id="_IDGenLabel5"  text="{products_json>ProductId}" />
                                                                 <Label id="_IDGenLabel8"  text="{products_json>Description}" />

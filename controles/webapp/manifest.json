@@ -99,28 +99,38 @@
       },
       "routes": [
         {
-          "name": "RouteView1",
-          "pattern": "RouteView1",
+          "name": "RouteMain",
+          "pattern": "RouteMain",
           "target": [
-            "TargetView1"
+            "TargetMain"
           ]
         }
       ],
       "targets": {
-        "TargetView1": {
+        "TargetMain": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "View1",
-          "viewName": "View1"
-        }
+          "viewId": "Main",
+          "viewName": "Main"
+        },
+
+        "TargetMasterProductos": {
+            "viewType": "XML",
+            "transition": "slide",
+            "clearControlAggregation": false,
+            "viewId": "MasterProductos",
+            "viewName": "MasterProductos"
+          }
+
+
       }
     },
     "rootView": {
-      "viewName": "ns.controles.view.View1",
+      "viewName": "ns.controles.view.Main",
       "type": "XML",
       "async": true,
-      "id": "View1"
+      "id": "Main"
     }
   }
 }

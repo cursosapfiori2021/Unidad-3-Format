@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="ns.controles.controller.View1"
+    controllerName="ns.controles.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns:core="sap.ui.core"
@@ -9,20 +9,23 @@
     <Shell id="shell">
         <App id="app">
             <pages>
-                <Page id="page" title="{i18n>title}">
+                <Page id="page33" title="{i18n>title}">
                     <content>
-                       <f:FlexibleColumnLayout id="fcl" backgroundDesign="Solid" layout="TwoColumnsBeginExpanded">
+                       <f:FlexibleColumnLayout id="fcl" backgroundDesign="Solid" layout="OneColumn">
                             <f:beginColumnPages>
+                                 
                                  <mvc:XMLView id="masterProductosView" viewName="ns.controles.view.MasterProductos"></mvc:XMLView> 
-                                
+                                  
                            </f:beginColumnPages>
 
-                              <f:midColumnPages>                         
-                                         <Page id="_IDGenPage1">
-                                </Page>       
+                            <f:midColumnPages>                         
+                                 
+                                   <mvc:XMLView id="detailProductoView" viewName="ns.controles.view.ProductoDetails"></mvc:XMLView> 
+                                       
                             </f:midColumnPages>
+                            
                             <f:endColumnPages>
-                               <Page id="_IDGenPage3">
+                               <Page id="_IDGenPage333">
                                 </Page>
                             </f:endColumnPages>
                        </f:FlexibleColumnLayout> 
