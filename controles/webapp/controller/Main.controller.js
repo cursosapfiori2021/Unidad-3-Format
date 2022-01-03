@@ -13,10 +13,29 @@ sap.ui.define([
             onInit: function () {
               this._bus = this.getOwnerComponent().getEventBus();
               this._bus.subscribe("flexible", "showProducto", this.showProductoDetails, this);
+
+
+
+
+
+          
+              
+              var oJSONModelConfig = new sap.ui.model.json.JSONModel({
+                visibleTabMedidas: true,
+                visibleTabInfGeneral: true,
+                visiblebtnShowTabMedidas: false,
+                visiblebtnHideTabMedidas: true,
+                
+            });
+
+              this.getView().setModel(oJSONModelConfig, "jsonModelConfig");
             },
 
 
             
+
+            
+
             showProductoDetails: function(category, nameEvent, path) {
                 var detailView = this.getView().byId("detailProductoView");
                 detailView.bindElement("products_json>" + path);

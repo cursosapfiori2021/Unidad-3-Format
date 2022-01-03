@@ -6,11 +6,28 @@
 		xmlns:f="sap.f"
 		xmlns:form="sap.ui.layout.form">
 
- <m:Page id="_IDGenPage1" title="{i18n>ProductoDetails}">   
+<m:Page id="_IDGenPage1" title="{i18n>ProductoDetails}">   
         
-        <m:Panel id="_IDGenPanel1">
+ <m:Panel id="_IDGenPanel1">
 
-	<ObjectPageLayout id="ObjectPageLayout"
+   <m:Button 
+   id="btnShowTabMedidas" 
+   text="{i18n>showTabMedidas}" 
+   visible="{jsonModelConfig>/visiblebtnShowTabMedidas}" 
+   press="onShowTabMedidas"/>
+
+
+   <m:Button id="btnHideTabMedidas" 
+   text="{i18n>hideTabMedidas}" 
+   visible="{jsonModelConfig>/visiblebtnHideTabMedidas}" 
+   press="onHideTabMedidas"/>  
+
+
+
+   <m:IconTabBar id="_IDGenIconTabBar1">
+        <m:items>
+            <m:IconTabFilter id="_IDGenIconTabFilter1" text="{i18n>InformacionGeneral}" visible="{jsonModelConfig>/visibleTabInfGeneral}">
+	          <ObjectPageLayout id="ObjectPageLayout"
 					 showTitleInHeaderContent="true"
 					alwaysShowContentHeader="false"
 					preserveHeaderStateOnScroll="false"
@@ -88,7 +105,41 @@
 	
 		</sections>
 	</ObjectPageLayout>
+ </m:IconTabFilter>
 
+            
+
+         <m:IconTabFilter 
+         id="_IDGenIconTabFilter2" 
+         text="{i18n>Medidas}" 
+         visible="{jsonModelConfig>/visibleTabMedidas}" >
+                <m:FlexBox id="_IDGenFlexBox63" wrap="Wrap" fitContainer="true" alignItems="Stretch">
+                            <f:Avatar id="_IDGenAvatar62" src="{products_json>ProductPicUrl}"
+                                    displaySize="L"
+                                    displayShape="Square"
+                                    class="sapUiTinyMarginEnd">
+                            </f:Avatar>
+                            <m:VBox id="_IDGenVBox61" justifyContent="Center" class="sapUiSmallMarginEnd">
+                                <m:Label id="_IDGenLabel61" text="Unidad de medida"/>
+                                <m:Text id="_IDGenText61" text="{products_json>DimUnit}"/>
+                            </m:VBox>
+                            <m:VBox id="_IDGenVBox62" justifyContent="Center" class="sapUiSmallMarginEnd">
+                                <m:Label id="_IDGenLabel62" text="Profundidad"/>
+                                <m:Text id="_IDGenText62" text="{products_json>Depth}"/>
+                            </m:VBox>
+                            <m:VBox id="_IDGenVBox63" justifyContent="Center" class="sapUiSmallMarginEnd">
+                                <m:Label id="_IDGenLabel63" text="Dimenciones"/>
+                                <m:ObjectNumber id="_IDGenObjectNumber16" 
+                                number="{products_json>Height} * {products_json>Width}" emphasized="false"/>
+                            </m:VBox>
+                        </m:FlexBox>
+ 
+             </m:IconTabFilter>
+       
+       
+       
+        </m:items>
+        </m:IconTabBar>
          </m:Panel>
     </m:Page>
 </mvc:View>       
